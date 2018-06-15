@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Water AI Map</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+  <style>
+    /* Always set the map height explicitly to define the size of the div
+     * element that contains the map. */
+    #map {
+      height: 100%;
+    }
+    /* Optional: Makes the sample page fill the window. */
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="map"></div>
+
+  <script src="jquery-3.2.1.js"></script>
+  <script type="text/javascript">
+  function checkInventory() {
+    var url = "/status";
+    var data = {};
+    
+    function success(data) {
+      console.log("result: ", data);
+      if ("contaminated" == data) {
+        markerSensor.icon = "/contaminated.png";
+        markerSensor.setMap(null);
+        markerSensor.setMap(map);
+      } 
+      else
+      {
+        markerSensor.icon = "/water.png";
+        markerSensor.setMap(null);
+        markerSensor.setMap(map);
+      }
+    }
+    
+    $.ajax({
+      url: url,
+      /* data: data, */
+      success: success,
+    });
+
+  }
+
+  setInterval(checkInventory, 1000);
+
+  var map, markerSensor, markerExample;
+  function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 14,
+      center: new google.maps.LatLng(37.7265926, -122.492393),
+      mapTypeId: 'roadmap'
+    });
+    /*
+
+    markerSensor = {
+      position: new google.maps.LatLng(37.7355901, -122.4900376),
+      type: 'water'
+    };
+
+    markerExample = {
+      position: new google.maps.LatLng(37.7265926, -122.492393),
+      type: 'water'
+    };
+
+    //var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+    /*
+    var icons = {
+      water: {
+        icon: '/water.png'
+      },
+      contaminated: {
+        icon: '/contaminated.png'
+      }
+    };*/
+    var features = [
+      markerSensor,markerExample
+    ];
+
+     markerSensor = new google.maps.Marker({
+        position:new google.maps.LatLng(37.7355901, -122.4900376),
+        icon: '/water.png',
+        map: map
+      });
+
+
+     markerExample = new google.maps.Marker({
+        position:new google.maps.LatLng(37.7265926, -122.492393),
+        icon: '/water.png',
+        map: map
+      });
+/*
+        // Create markers.
+    features.forEach(function(feature) {
+      var marker = new google.maps.Marker({
+        position: feature.position,
+        icon: icons[feature.type].icon,
+        map: map
+        });
+      });*/
+    }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqxkBoJOutpRJwNKVnvsRpuGNI_FVUwPU&callback=initMap"
+        async defer></script>
+
+</body>
+
+</html>

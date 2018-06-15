@@ -1,0 +1,5 @@
+graph filter=lfs diff=lfs merge=lfs -text
+*.caffemodel filter=lfs diff=lfs merge=lfs -text
+graph.* filter=lfs diff=lfs merge=lfs -text
+*.graph filter=lfs diff=lfs merge=lfs -text
+networks/WaterNet/graph filter=lfs diff=lfs merge=lfs -text
