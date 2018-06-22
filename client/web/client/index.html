@@ -61,28 +61,7 @@
       center: new google.maps.LatLng(37.7265926, -122.492393),
       mapTypeId: 'roadmap'
     });
-    /*
 
-    markerSensor = {
-      position: new google.maps.LatLng(37.7355901, -122.4900376),
-      type: 'water'
-    };
-
-    markerExample = {
-      position: new google.maps.LatLng(37.7265926, -122.492393),
-      type: 'water'
-    };
-
-    //var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
-    /*
-    var icons = {
-      water: {
-        icon: '/water.png'
-      },
-      contaminated: {
-        icon: '/contaminated.png'
-      }
-    };*/
     var features = [
       markerSensor,markerExample
     ];
@@ -99,15 +78,7 @@
         icon: '/water.png',
         map: map
       });
-/*
-        // Create markers.
-    features.forEach(function(feature) {
-      var marker = new google.maps.Marker({
-        position: feature.position,
-        icon: icons[feature.type].icon,
-        map: map
-        });
-      });*/
+
     }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqxkBoJOutpRJwNKVnvsRpuGNI_FVUwPU&callback=initMap"

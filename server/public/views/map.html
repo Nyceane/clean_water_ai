@@ -3,59 +3,64 @@
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <script src="./js/jquery.min.js"></script>
 
-    <title>Water Map</title>
+    <title>Water AI Map</title>
+      <style>
+    /* Always set the map height explicitly to define the size of the div
+     * element that contains the map. */
+    #map {
+      height: 100%;
+    }
+    /* Optional: Makes the sample page fill the window. */
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
   </head>
   <body>
     <div id="map"></div>
+        <script src="./js/jquery.min.js"></script>
+
     <script>
-      // This example creates circles on the map, representing populations in North
-      // America.
-
-      // First, create an object containing LatLng and population for each city.  We can use this on helium element in the future
-      var sanfrancisco = {
-        center: {lat: 37.7766039, lng: -122.4328508},
-        population: 2714856
-      };
-
       var map, markerSensor, markerExample;;
 
       function initMap() {
         // Create the map.
-      map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 14,
-        center: new google.maps.LatLng(37.7265926, -122.492393),
-        mapTypeId: 'roadmap'
-      });
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 14,
+          center: new google.maps.LatLng(37.7265926, -122.492393),
+          mapTypeId: 'roadmap'
+        });
 
-      var features = [
-        markerSensor,markerExample
-      ];
+        var features = [
+          markerSensor,markerExample
+        ];
 
-      markerSensor = new google.maps.Marker({
-        position:new google.maps.LatLng(37.7355901, -122.4900376),
-        icon: '/water.png',
-        map: map
-      });
+        markerSensor = new google.maps.Marker({
+          position:new google.maps.LatLng(37.7355901, -122.4900376),
+          icon: './water.png',
+          map: map
+        });
 
 
-     markerExample = new google.maps.Marker({
-        position:new google.maps.LatLng(37.7265926, -122.492393),
-        icon: '/water.png',
-        map: map
-      });
+       markerExample = new google.maps.Marker({
+          position:new google.maps.LatLng(37.7265926, -122.492393),
+          icon: './water.png',
+          map: map
+        });
 
-    }
+      }
         function dataSuccess(data){
-          if (data.detection == "clean") {
+          if (data.detection == "Clean") {
             markerSensor.icon = "./water.png";
             markerSensor.setMap(null);
             markerSensor.setMap(map);
           } 
           else
           {
-                        markerSensor.icon = "./contaminated.png";
+            markerSensor.icon = "./contaminated.png";
             markerSensor.setMap(null);
             markerSensor.setMap(map);
           }
@@ -71,7 +76,7 @@
       
     </script>
     <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAbWgUhu9ZVoWKXAm61qiLj6JUqd0IoeAA&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=YOURKEY&callback=initMap">
     </script>
   </body>
 </html>
