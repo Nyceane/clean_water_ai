@@ -20,7 +20,7 @@ const config = require('./config');
 const ds = Datastore({
   projectId: config.get('GCLOUD_PROJECT')
 });
-const kind = 'Water';
+const kind = 'CleanWaterAI';
 // [END config]
 
 // Translates from Datastore's entity format to
