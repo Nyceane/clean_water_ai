@@ -1,5 +1,3 @@
-![Logo](logo_large.png)
-
 # Clean-Water-AI
 
 According to World Health Organization, over 2.1 billion people in the world lack safe drinking water at home, more than twice as many lack safe sanitation.  And even in first world countries like Untied States, they still have water contamination problems such as Flint, Michigan.
@@ -11,7 +9,3 @@ Traditional water quality testing usually goes through chemical reaction, which 
 Clean Water AI can be used to continuously detecting the water quality in real time, and can be used offline in areas where internet may not be accessible.  In addition, we are able to sense cholera, e-coli, and other harmful bacterias through single device rather than different test kits.  Since we are using optical and AI based solution, we can easily train more dangerous bacterias and harmful particles as needed.
 
 Water is essential for human life.  We want to use AI to securing water quality and safety to everyone in the world, and we believe with enough help, we can change the world with his device.
-
-
-# Training
-![Training](training.png)
