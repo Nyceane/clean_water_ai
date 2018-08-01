@@ -1,0 +1,41 @@
+<html>
+<link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css" />
+<script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1"></script>
+<link rel="stylesheet" href="style.css" type="text/css" />
+<script src="jquery-3.2.1.js"></script>
+
+<body>
+  <div id="map"></div>
+  <script type="text/javascript">
+  	/* Instantiate map to the div with id "map" */
+	var mapCenterPosition = [-122.492393, 37.7265926];
+	var map = new atlas.Map("map", {
+	  "subscription-key": "tTk1JVEaeNvDkxxnxHm9cYaCvqlOq1u-fXTvyXn2XkA",
+	  center: mapCenterPosition,
+	  zoom: 13
+	});
+
+	/* Create a custom html*/
+	var waterpin1 = document.createElement('div');
+	waterpin1.classList.add("ms-pin");
+	var location1 = [-122.4900376, 37.7355901];
+
+	/* Add the custom html to the map*/
+	map.addHtml(waterpin1, location1);
+
+	var waterpin2 = document.createElement('div');
+	waterpin2.classList.add("ms-pin");
+	var location2 = [-122.492393, 37.7265926];
+
+	/* Add the custom html to the map*/
+	map.addHtml(waterpin2, location2);
+
+	function checkResult() {
+		waterpin1.style.backgroundImage = "url('contaminated.png')";
+	}
+	setInterval(checkResult, 5000);
+
+  </script>
+</body>
+
+</html>
