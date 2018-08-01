@@ -31,7 +31,25 @@
 	map.addHtml(waterpin2, location2);
 
 	function checkResult() {
-		waterpin1.style.backgroundImage = "url('contaminated.png')";
+		var url = "http://<yourapp>.azurewebsites.net/api/data?code=<functionkey>";
+    	var data = {};
+	    function success(data) {
+	      console.log("result: ", data);
+	      if ("contaminated" == data) {
+			waterpin1.style.backgroundImage = "url('contaminated.png')";
+	      } 
+	      else
+	      {
+			waterpin1.style.backgroundImage = "url('water.png')";
+	      }
+	    }
+	    
+	    $.ajax({
+	      url: url,
+	      success: success,
+	    });
+
+
 	}
 	setInterval(checkResult, 5000);
 
