@@ -1,4 +1,4 @@
-![Logo](logo_large.png)
+![Logo](Logo_Large.png)
 
 # Step by Step guide
 A step by step guide is published on https://www.hackster.io/clean-water-ai/clean-water-ai-e40806
