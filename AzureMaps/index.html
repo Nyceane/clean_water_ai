@@ -29,29 +29,7 @@
 
 	/* Add the custom html to the map*/
 	map.addHtml(waterpin2, location2);
-
-	function checkResult() {
-		var url = "http://<yourapp>.azurewebsites.net/api/data";
-    	var data = {};
-	    function success(data) {
-	      console.log("result: ", data);
-	      if ("Contaminated" == data) {
-			waterpin1.style.baCkgroundImage = "url('contaminated.png')";
-	      } 
-	      else
-	      {
-			waterpin1.style.backgroundImage = "url('water.png')";
-	      }
-	    }
-	    
-	    $.ajax({
-	      url: url,
-	      success: success,
-	    });
-
-
-	}
-	setInterval(checkResult, 1000);
+	    				waterpin1.style.backgroundImage = "url('contaminated.png')";
 
   </script>
 </body>
