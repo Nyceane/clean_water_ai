@@ -1,7 +1,7 @@
 
-# [WorldWind Kilauea](https://worldwindlabs.github.io/Kilauea/)
+# [Clean Water AI](https://cleanwaterai.github.io/)
 
-The __worldwindlabs/Kilauea__ project is an [online viewer](https://worldwindlabs.github.io/Kilauea/)
+The __worldwindlabs/Kilauea__ project is an [online viewer](https://cleanwaterai.github.io/)
  for Kilauea disaster response imagery.
 
 This project is a fork of [emxsys/worldwind-react-app](https://github.com/emxsys/worldwind-react-app)
