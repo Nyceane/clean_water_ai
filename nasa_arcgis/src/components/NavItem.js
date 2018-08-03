@@ -15,14 +15,28 @@ class NavItem extends Component {
    * @returns {String}
    */
   render() {
-    return (
+    if(this.props.islink == "true")
+    {
+      return (
         <li className="nav-item">
-            <a className="nav-link" data-toggle="collapse" href={this.props.href} role="button">
+            <a className="nav-link" href={this.props.href} role="button" >
                 <FontAwesome name={this.props.icon} />
                 <span className="d-md-none d-lg-inline pl-1" aria-hidden="true">{this.props.title}</span>
             </a>
         </li>
-    );
+      );
+    }
+    else
+    {
+      return (
+          <li className="nav-item">
+              <a className="nav-link" data-toggle="collapse" href={this.props.href} role="button" >
+                  <FontAwesome name={this.props.icon} />
+                  <span className="d-md-none d-lg-inline pl-1" aria-hidden="true">{this.props.title}</span>
+              </a>
+          </li>
+      );
+    }
   }
 };
 

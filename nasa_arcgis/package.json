@@ -1,8 +1,8 @@
 {
-  "name": "Kilauea",
-  "version": "0.2.0",
+  "name": "Clean Water AI",
+  "version": "0.1.0",
   "private": true,
-  "homepage": "https://worldwindlabs.github.io/Kilauea",
+  "homepage": "https://CleanWaterAI.github.io/",
   "dependencies": {
     "ajv": "^6.5.0",
     "bootstrap": "^4.1.1",

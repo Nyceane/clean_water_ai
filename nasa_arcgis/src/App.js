@@ -57,7 +57,7 @@ const App = observer(class App extends Component {
       {layer: "Coordinates", options: {category: "setting", enabled: true}},
       {layer: "View Controls", options: {category: "setting", enabled: true}},
       {layer: "Stars", options: {category: "setting", enabled: false, displayName: "Stars"}},
-      {layer: "Atmosphere", options: {category: "setting", enabled: false}},
+      {layer: "Atmosphere", options: {category: "setting", enabled: true}},
       {layer: "Tessellation", options: {category: "debug", enabled: false}}
     ];
     for (let config of layers) {
@@ -117,8 +117,11 @@ const App = observer(class App extends Component {
    */
   render() {
     const navbarItems = [
-      <NavItem key='markers' title="Locations" icon="map-marker" href="#markers"/>,
-      <NavItem key='settings' title="Settings" icon="cog" href="#settings"/>
+      <NavItem key='markers' title="Locations" icon="map-marker" href="#markers" islink="false" />,
+      <NavItem key='settings' title="Settings" icon="cog" href="#settings" islink="false"  />,
+      <NavItem key='source' title="Source Code" icon="code" href="https://github.com/nyceane/clean_water_ai" islink="true" />,
+      <NavItem key='guide' title="Step By Step Guide" icon="codepen" href="https://www.hackster.io/clean-water-ai/clean-water-ai-e40806" islink="true" />,
+      <NavItem key='video' title="Demo Video" icon="youtube" href="https://www.youtube.com/watch?v=QeDSiSZR1hg" islink="false"  />
     ];
     const navbarSearch = <SearchBox globe={this.globe}/>;
 
@@ -126,11 +129,11 @@ const App = observer(class App extends Component {
     return (
         <div>
             <NavBar 
-                title='WorldWind Kilauea'
-                logo='images/nasa-logo_32.png'
-                href='https://github.com/worldwindlabs/kilauea'
+                title='Clean Water AI'
+                logo='images/logo.png'
+                href='https://www.hackster.io/clean-water-ai/clean-water-ai-e40806'
                 items={navbarItems}
-                search={navbarSearch} />
+                />
             <div className="App container-fluid p-0">
                 <div className="globe">
                     <Globe 
@@ -139,12 +142,6 @@ const App = observer(class App extends Component {
                         longitude={-122.492393}
                         altitude={15e3}
                         onUpdate={this.onGlobeUpdate.bind(this)} />
-                </div>
-                <div className="overlayTools noninteractive">
-                    <Tools 
-                        globe={this.globeRef.current} 
-                        markers={this.markersRef.current}
-                        markersLayerName="Markers"/>
                 </div>
                 <div className="overlayCards noninteractive">
                     <div className="card-columns">
