@@ -29,7 +29,29 @@
 
 	/* Add the custom html to the map*/
 	map.addHtml(waterpin2, location2);
-	    				waterpin1.style.backgroundImage = "url('contaminated.png')";
+
+	function checkResult() {
+		var url = "https://iotdata.azurewebsites.net/api/data";
+    	var data = {};
+	    function success(data) {
+	      console.log("result: ", data);
+	      if ("Contaminated" == data.Type) {
+			waterpin1.style.backgroundImage = "url('contaminated.png')";
+	      } 
+	      else
+	      {
+			waterpin1.style.backgroundImage = "url('water.png')";
+	      }
+	    }
+	    
+	    $.ajax({
+	      url: url,
+	      success: success,
+	    });
+
+
+	}
+	setInterval(checkResult, 1000);
 
   </script>
 </body>
